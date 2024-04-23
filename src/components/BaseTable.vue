@@ -1,18 +1,19 @@
 <template>
-  <div class="rounded border border-grey-light">
+  <div class="rounded border border-grey">
     <div
       class="md:px-12 md:py-10 px-8 py-6 flex flex-col lg:flex-row justify-between md:items-center"
     >
-      <div class="flex justify-between">
+      <div class="flex justify-between w-full">
         <slot name="header"></slot>
         <div v-if="searchbar" class="md:w-96 mt-4 lg:mt-0">
-          <form class="max-w-md mx-auto">   
-          <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
+          <form class="max-w-md mx-auto ">   
+          <label for="search" class="mb-2 text-sm font-medium text-grey sr-only ">Search</label>
           <input        
             type="search"
             id="search"
+            placeholder="Search by email or name"
             v-on:input="onFilterTextBoxChanged($event)" 
-            class="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"   />
+            class="block w-full p-4 ps-10 text-sm text-grey border border-grey rounded-lg "   />
           </form>
         </div>
       </div>
@@ -45,7 +46,7 @@
     class="flex w-full justify-center items-center space-x-1 mt-2"
   >
     <button
-      class="px-3 py-1 text-white text-sm font-semibold rounded-md hover:bg-white hover:text-grey"
+      class="px-3 py-1 text-grey text-sm font-semibold rounded-md hover:bg-white hover:text-grey"
       @click.prevent="first"
       v-if="currentPage > 0"
     >
@@ -53,14 +54,14 @@
     </button>
     <button
       v-if="currentPage - 1 > 0"
-      class="px-3 py-1 text-white text-sm font-semibold rounded-md hover:bg-white hover:text-grey"
+      class="px-3 py-1 text-grey text-sm font-semibold rounded-md hover:bg-white hover:text-grey"
       @click.prevent="goToPage(currentPage - 2)"
     >
       {{ currentPageLabel - 2 }}
     </button>
     <button
       v-if="currentPage > 0"
-      class="px-3 py-1 text-white text-sm font-semibold rounded-md hover:bg-white hover:text-grey"
+      class="px-3 py-1 text-grey text-sm font-semibold rounded-md hover:bg-white hover:text-grey"
       @click.prevent="goToPage(currentPage - 1)"
     >
       {{ currentPageLabel - 1 }}
@@ -73,20 +74,20 @@
     </button>
     <button
       v-if="currentPage + 1 <= totalPages"
-      class="px-3 py-1 text-white text-sm font-semibold rounded-md hover:bg-white hover:text-grey"
+      class="px-3 py-1 text-grey text-sm font-semibold rounded-md hover:bg-white hover:text-grey"
       @click.prevent="goToPage(currentPage + 1)"
     >
       {{ currentPageLabel + 1 }}
     </button>
     <button
       v-if="currentPage + 2 <= totalPages"
-      class="px-3 py-1 text-white text-sm font-semibold rounded-md hover:bg-white hover:text-grey"
+      class="px-3 py-1 text-grey text-sm font-semibold rounded-md hover:bg-white hover:text-grey"
       @click.prevent="goToPage(currentPage + 2)"
     >
       {{ currentPageLabel + 2 }}
     </button>
     <button
-      class="px-3 py-1 text-white font-bold rounded-md hover:bg-white hover:text-grey"
+      class="px-3 py-1 text-grey font-bold rounded-md hover:bg-white hover:text-grey"
       @click.prevent="last"
       v-if="currentPage < totalPages"
     >

@@ -1,10 +1,10 @@
 <template>
   <base-table
-    class="mb-8"
-    :row-height="80"
+    class="mb-8 bg-grey-lighter "
+    :row-height="60"
     :row-data="rowData"
     :columnDefs="columnDefs"
-    :page-size="100"
+    :page-size="10"
     ref="table"
   >
     <template #header>
