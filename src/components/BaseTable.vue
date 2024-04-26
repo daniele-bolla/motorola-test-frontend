@@ -89,7 +89,7 @@
     <button
       class="px-3 py-1 text-grey font-bold rounded-md hover:bg-white hover:text-grey"
       @click.prevent="last"
-      v-if="currentPage < totalPages"
+      v-if="currentPage <= totalPages"
     >
       Last
     </button>
